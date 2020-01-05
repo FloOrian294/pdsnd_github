@@ -279,7 +279,7 @@ def user_stats(df, city, month, weekday):
 
     start_time = time.time()
 
-    # Display counts of user types
+    # Display counts of user types and check whether data is available in the chosen dataset
     if 'User Type' in df.columns:
         user_types = df['User Type'].value_counts()
         print('Distribution of User Types:')
@@ -288,7 +288,7 @@ def user_stats(df, city, month, weekday):
     else:
         print('Unfortunately the dataset is missing data wrt User Type.')
 
-    # Display counts of gender
+    # Display counts of gender and check whether data is available in the chosen dataset
     if 'Gender' in df.columns:
         gender = df['Gender'].value_counts()
         print('Distribution of Gender:')
@@ -296,7 +296,8 @@ def user_stats(df, city, month, weekday):
             print(' {} {}'.format(key, gender.get(key)))
     else:
         print('Unfortunately the dataset is missing data wrt Gender.')
-    # display earliest, most recent, and most common year of birth
+
+    # display earliest, most recent, and most common year of birth and check whether data is available in the chosen dataset
     if 'Birth Year' in df.columns:
         earliest_year_of_birth = str(int(df['Birth Year'].min()))
         print('\nThe oldest driver  born in {}'.format(earliest_year_of_birth))
