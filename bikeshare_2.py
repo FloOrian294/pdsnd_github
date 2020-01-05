@@ -178,21 +178,21 @@ def load_data(city, month, day):
 
 
 def time_stats(df, city):
-    """Dplays stattics on the most frequent times of travel."""
+    """displays stattics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times in {} of Travel for the first half of 2017 ...\n'.format(city))
     start_time = time.time()
 
-    # dplay the most common month
+    # display the most common month
     popular_month = df['Month'].mode()[0]
     print('Most common month: {}'.format(MONTH_DATA[popular_month].capitalize()))
 
-    # dplay the most common day of week
+    # display the most common day of week
     popular_day = df['Weekday'].mode()[0]
     print('Most common weekday: {}'.format(DAY_DATA[popular_day].capitalize()))
 
 
-    # dplay the most common start hour
+    # display the most common start hour
     popular_hour = df['Start hour'].mode()[0]
     print('Most comm start hour: {}'.format(popular_hour))
 
@@ -201,7 +201,7 @@ def time_stats(df, city):
 
 
 def station_stats(df, city, month, weekday):
-    """Dplays stattics on the most popular stations and trip"""
+    """displays stattics on the most popular stations and trip"""
     if (month == 'all' and weekday == 'all'):
         print('\nCalculating The Most Popular Stations and Trip in {} in first half of 2017...\n'.format(city))
     elif month == 'all':
@@ -213,13 +213,13 @@ def station_stats(df, city, month, weekday):
 
     start_time = time.time()
 
-    # dplay most commonly used start station
+    # display most commonly used start station
     if 'Start Station' in df.columns:
         popular_start_station = df['Start Station'].mode()[0]
         print('Most commonly used start station  {}'.format(popular_start_station))
     else:
         print('Unfortunately the dataset is missing data wrt Start Station.')
-    # dplay most commonly used end station
+    # display most commonly used end station
     if 'End Station' in df.columns:
         popular_end_station = df['End Station'].mode()[0]
         print('Most commonly used end station  {}'.format(popular_end_station))
@@ -227,7 +227,7 @@ def station_stats(df, city, month, weekday):
         print('Unfortunately the dataset is missing data wrt End Station.')
 
     if ('Start Station' in df.columns and 'End Station' in df.columns):
-    # dplay most frequent combination of start station and end station trip
+    # display most frequent combination of start station and end station trip
         popular_combination_start_end_station = df[['Start Station', 'End Station']].mode()
         print('Most frequent combination of start and end station :\nStart Station: {}\nEnd Station: {}'.format(popular_combination_start_end_station['Start Station'][0], popular_combination_start_end_station['End Station'][0]))
     else:
@@ -239,7 +239,7 @@ def station_stats(df, city, month, weekday):
 
 
 def trip_duration_stats(df, city, month, weekday):
-    """Dplays stattics on the total and average trip duration."""
+    """displays stattics on the total and average trip duration."""
     if (month == 'all' and weekday == 'all'):
         print('\nCalculating Trip Duration in {} in first half of 2017...\n'.format(city))
     elif month == 'all':
@@ -252,11 +252,11 @@ def trip_duration_stats(df, city, month, weekday):
     start_time = time.time()
 
     if 'Trip Duration' in df.columns:
-        # dplay total travel time
+        # display total travel time
         total_travel_time = str(df['Trip Duration'].sum())
         print('The total travel time  {} sec.'.format(total_travel_time))
 
-        # dplay mean travel time
+        # display mean travel time
         avg_travel_time = str(df['Trip Duration'].mean())
         print('The total average time  {} sec.'.format(avg_travel_time))
     else:
@@ -267,7 +267,7 @@ def trip_duration_stats(df, city, month, weekday):
 
 
 def user_stats(df, city, month, weekday):
-    """Dplays stattics on bikeshare users."""
+    """displays statistics on bikeshare users."""
     if (month == 'all' and weekday == 'all'):
         print('\nCalculating User Stats in {} in first half of 2017...\n'.format(city))
     elif month == 'all':
@@ -279,7 +279,7 @@ def user_stats(df, city, month, weekday):
 
     start_time = time.time()
 
-    # Dplay counts of user types
+    # Display counts of user types
     if 'User Type' in df.columns:
         user_types = df['User Type'].value_counts()
         print('Distribution of User Types:')
@@ -288,7 +288,7 @@ def user_stats(df, city, month, weekday):
     else:
         print('Unfortunately the dataset is missing data wrt User Type.')
 
-    # Dplay counts of gender
+    # Display counts of gender
     if 'Gender' in df.columns:
         gender = df['Gender'].value_counts()
         print('Distribution of Gender:')
@@ -296,7 +296,7 @@ def user_stats(df, city, month, weekday):
             print(' {} {}'.format(key, gender.get(key)))
     else:
         print('Unfortunately the dataset is missing data wrt Gender.')
-    # Dplay earliest, most recent, and most common year of birth
+    # display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         earliest_year_of_birth = str(int(df['Birth Year'].min()))
         print('\nThe oldest driver  born in {}'.format(earliest_year_of_birth))
