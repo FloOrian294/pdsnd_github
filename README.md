@@ -9,9 +9,8 @@ The project allows you to analyze bikesharing data of the 1st half of 2017 of 3 
 
 ### Files used
 bikeshare_2.py
-chicago.csv
-new_york_city.csv
-washington.csv
+README.md
+.gitignore
 
 ### Credits
 help from
