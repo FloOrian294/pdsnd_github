@@ -280,32 +280,32 @@ def user_stats(df, city, month, weekday):
     start_time = time.time()
 
     # Display counts of user types and check whether data is available in the chosen dataset
-    if 'User Type' in df.columns:
+    try:
         user_types = df['User Type'].value_counts()
         print('Distribution of User Types:')
         for key in user_types.keys():
             print(' {} {}'.format(key, user_types.get(key)))
-    else:
+    except:
         print('Unfortunately the dataset is missing data wrt User Type.')
 
     # Display counts of gender and check whether data is available in the chosen dataset
-    if 'Gender' in df.columns:
+    try:
         gender = df['Gender'].value_counts()
         print('Distribution of Gender:')
         for key in gender.keys():
             print(' {} {}'.format(key, gender.get(key)))
-    else:
+    except:
         print('Unfortunately the dataset is missing data wrt Gender.')
 
     # display earliest, most recent, and most common year of birth and check whether data is available in the chosen dataset
-    if 'Birth Year' in df.columns:
+    try:
         earliest_year_of_birth = str(int(df['Birth Year'].min()))
         print('\nThe oldest driver  born in {}'.format(earliest_year_of_birth))
         most_recent_year_of_birth = str(int(df['Birth Year'].max()))
         print('The youngest driver  born in {}'.format(most_recent_year_of_birth))
         popular_year_of_birth = str(int(df['Birth Year'].mode()[0]))
         print('Most drivers are born in {}'.format(popular_year_of_birth))
-    else:
+    except:
         print('Unfortunately the dataset is missing data wrt Birth Year.')
 
     print("\nTh took %s seconds." % (time.time() - start_time))
