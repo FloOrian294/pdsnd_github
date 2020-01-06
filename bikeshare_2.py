@@ -196,7 +196,7 @@ def time_stats(df, city):
     popular_hour = df['Start hour'].mode()[0]
     print('Most comm start hour: {}'.format(popular_hour))
 
-    print("\nTh took %s seconds." % (time.time() - start_time))
+    print("\nThe calculation tooks %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -234,7 +234,7 @@ def station_stats(df, city, month, weekday):
         print('Unfortunately the dataset is missing data wrt Start or End Station.')
 
 
-    print("\nTh took %s seconds." % (time.time() - start_time))
+    print("\nThe calculation tooks %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -262,7 +262,7 @@ def trip_duration_stats(df, city, month, weekday):
     else:
         print('Unfortunately the dataset is missing data wrt Trip Duration.')
 
-    print("\nTh took %s seconds." % (time.time() - start_time))
+    print("\nThe calculation tooks %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -308,7 +308,7 @@ def user_stats(df, city, month, weekday):
     except:
         print('Unfortunately the dataset is missing data wrt Birth Year.')
 
-    print("\nTh took %s seconds." % (time.time() - start_time))
+    print("\nThe calculation tooks %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
